@@ -13,22 +13,33 @@ namespace Seller.JournalEntries.Api.Endpoints
 
             accountingEntries.MapGet("", async (IMediator mediator) =>
             {
-                await mediator.Send(new SelectAllAccountingEntriesRequest());
+                var response = await mediator.Send(new SelectAllAccountingEntriesRequest());
+
+                return response.IsSuccess
+                ? Results.Ok(response.Value)
+                : Results.BadRequest(response.Errors);
             })
             .WithName("GetAllAccountingEntries")
             .WithOpenApi();
 
             accountingEntries.MapGet("{id}", async (IMediator mediator, Guid id) =>
             {
-                await mediator.Send(new SelectAccountingEntryByIdRequest(id));
+                var response = await mediator.Send(new SelectAccountingEntryByIdRequest(id));
+
+                return response.IsSuccess
+                ? Results.Ok(response.Value)
+                : Results.BadRequest(response.Errors);
             })
             .WithName("GetAccountingEntryById")
             .WithOpenApi();
 
             accountingEntries.MapPost("", async (IMediator mediator, InsertAccountingEntryRequest request) =>
             {
-                var result = await mediator.Send(request);
-                return result;
+                var response = await mediator.Send(request);
+
+                return response.IsSuccess
+                ? Results.Ok(response.Value)
+                : Results.BadRequest(response.Errors);
             })
             .WithName("PostAccountingEntry")
             .WithOpenApi();

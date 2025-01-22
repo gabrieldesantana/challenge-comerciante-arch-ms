@@ -2,7 +2,7 @@
 {
     public enum EEntryType
     {
-        Credit,
-        Debit
+        Credit = 1,
+        Debit = 2
     }
 }

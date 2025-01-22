@@ -10,7 +10,7 @@ COPY ["Seller.JournalEntries.Application/Seller.JournalEntries.Application.cspro
 COPY ["Seller.JournalEntries.Domain/Seller.JournalEntries.Domain.csproj", "Seller.JournalEntries.Domain/"]
 COPY ["Seller.JournalEntries.CrossCutting/Seller.JournalEntries.CrossCutting.csproj", "Seller.JournalEntries.CrossCutting/"]
 COPY ["Seller.JournalEntries.Infrastructure/Seller.JournalEntries.Infrastructure.csproj", "Seller.JournalEntries.Infrastructure/"]
-RUN dotnet restore -a "./Seller.JournalEntries.Api/Seller.JournalEntries.Api.csproj"
+RUN dotnet restore "./Seller.JournalEntries.Api/Seller.JournalEntries.Api.csproj"
 COPY . .
 WORKDIR "/src/Seller.JournalEntries.Api"
 RUN dotnet build "Seller.JournalEntries.Api.csproj" -c Release -o /app/build

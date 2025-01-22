@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Seller.JournalEntries.Domain.Enums;
 
 namespace Seller.JournalEntries.Application.AccountingEntries.InsertAccountingEntry
 {
@@ -11,14 +12,17 @@ namespace Seller.JournalEntries.Application.AccountingEntries.InsertAccountingEn
                 .WithMessage("{PropertyName} deve ser informado");
 
             RuleFor(v => v.MonetaryValue)
+                .GreaterThan(0)
                 .NotNull()
                 .WithMessage("{PropertyName} deve ser informado");
 
             RuleFor(v => v.EntryType)
+                .IsInEnum()
                 .NotNull()
                 .WithMessage("{PropertyName} deve ser informado");
 
             RuleFor(v => v.Date)
+                .LessThanOrEqualTo(DateTime.Now)
                 .NotNull()
                 .WithMessage("{PropertyName} deve ser informado");
         }

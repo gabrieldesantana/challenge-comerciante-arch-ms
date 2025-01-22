@@ -10,6 +10,8 @@ namespace Seller.JournalEntries.Infrastructure.Data.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.ToTable("JournalEntries");
+            builder.Property(x => x.Type).HasConversion<string>();
+            builder.Property(x => x.CreatedAt).HasColumnType("timestamp");
         }
     }
 }

@@ -17,7 +17,7 @@ services:
       - journal-entries-db
 
   journal-entries-db:
-    image: postgres:latest
+    image: postgres:17.2
     container_name: journal-entries-db
     hostname: journal-entries-db
     environment:
@@ -25,7 +25,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Senha123!
     ports:
-      - "5432:5432"
+      - "35432:5432"
     networks:
       - journal_entries_network
 

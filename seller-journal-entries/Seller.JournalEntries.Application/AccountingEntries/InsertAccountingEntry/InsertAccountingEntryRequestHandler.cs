@@ -16,11 +16,13 @@ namespace Seller.JournalEntries.Application.AccountingEntries.InsertAccountingEn
 
         public async Task<Result<InsertAccountingEntryResponse>> Handle(InsertAccountingEntryRequest request, CancellationToken cancellationToken)
         {
-            _validator.ValidateAndThrow(request);
+            var validate = _validator.Validate(request); //.ValidateAndThrow(request);
+
+            if (!validate.IsValid)
+                return Result.Fail(validate.ToString("~"));
 
             var accountingEntry = new AccountingEntry
                 (
-                id: Guid.NewGuid(),
                 request.Description,
                 request.MonetaryValue,
                 request.EntryType,

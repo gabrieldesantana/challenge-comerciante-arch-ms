@@ -4,9 +4,8 @@ namespace Seller.JournalEntries.Domain.Entities
 {
     public class AccountingEntry : BaseEntity
     {
-        public AccountingEntry(Guid id, string? description, decimal monetaryValue, EEntryType? type, DateTime date)
+        public AccountingEntry(string? description, decimal monetaryValue, EEntryType? type, DateTime date)
         {
-            Id = id;
             Description = description;
             MonetaryValue = monetaryValue;
             Type = type;
