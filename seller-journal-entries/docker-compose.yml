@@ -1,0 +1,33 @@
+services:
+  journal-entries-ms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: journal-entries-api
+    hostname: journal-entries-host
+    ports:
+    - "8080:8080"
+    networks:
+      - journal_entries_network
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
+    depends_on:
+      - journal-entries-db
+
+  journal-entries-db:
+    image: postgres:latest
+    container_name: journal-entries-db
+    hostname: journal-entries-db
+    environment:
+      - POSTGRES_DB=db-hml
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Senha123!
+    ports:
+      - "5432:5432"
+    networks:
+      - journal_entries_network
+
+networks:
+  journal_entries_network:

@@ -13,6 +13,15 @@ namespace Seller.JournalEntries.Infrastructure.Data.Context
 
         public DbSet<AccountingEntry> JournalEntries { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            // connect to postgres with connection string from app settings
+
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
+            //var connectionString = _configuration.GetConnectionString("Database");
+            options.UseNpgsql(connectionString, b => b.MigrationsAssembly("SalonManager.Infrastructure"));
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

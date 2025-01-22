@@ -1,5 +1,9 @@
-﻿using Seller.JournalEntries.Application.AccountingEntry.InsertAccountingEntry;
-using System.Reflection;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+using Seller.JournalEntries.Application;
+using Seller.JournalEntries.Domain.Interfaces.Repository;
+using Seller.JournalEntries.Infrastructure.Data.Context;
+using Seller.JournalEntries.Infrastructure.Data.Repository;
 
 namespace Seller.JournalEntries.Api.Extensions
 {
@@ -7,7 +11,16 @@ namespace Seller.JournalEntries.Api.Extensions
     {
         public static void RegisterServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), typeof(InsertAccountingEntryRequestHandler).Assembly));
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ApplicationEntryPoint).Assembly));
+
+            builder.Services.AddValidatorsFromAssembly(typeof(ApplicationEntryPoint).Assembly);
+
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(connectionString));
+
+            builder.Services.AddScoped<IAccountingEntryRepository, AccountingEntryRepository>();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

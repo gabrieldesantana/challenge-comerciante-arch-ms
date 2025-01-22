@@ -29,8 +29,8 @@ namespace Seller.JournalEntries.Application.AccountingEntries.InsertAccountingEn
 
             await _repository.CreateAsync(accountingEntry);
 
-            InsertAccountingEntryResponse insertAccountingEntryResponse = accountingEntry;
-            return Result.Ok(insertAccountingEntryResponse);
+            InsertAccountingEntryResponse response = accountingEntry;
+            return Result.Ok(response);
         }
     }
 }

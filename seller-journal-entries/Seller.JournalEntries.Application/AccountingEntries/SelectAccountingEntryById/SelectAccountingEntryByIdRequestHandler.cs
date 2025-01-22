@@ -17,9 +17,9 @@ namespace Seller.JournalEntries.Application.AccountingEntries.SelectAccountingEn
 
             var accountingEntry = await _repository.GetByIdAsync(request.Id);
 
-            SelectAccountingEntryByIdResponse selectAccountingEntryByIdResponse = accountingEntry;
+            SelectAccountingEntryByIdResponse response = accountingEntry;
 
-            return Result.Ok(selectAccountingEntryByIdResponse);
+            return Result.Ok(response);
         }
     }
 }
