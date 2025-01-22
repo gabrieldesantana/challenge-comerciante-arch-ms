@@ -1,0 +1,6 @@
+@Seller.DailyReport.Api_HostAddress = http://localhost:5002
+
+GET {{Seller.DailyReport.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

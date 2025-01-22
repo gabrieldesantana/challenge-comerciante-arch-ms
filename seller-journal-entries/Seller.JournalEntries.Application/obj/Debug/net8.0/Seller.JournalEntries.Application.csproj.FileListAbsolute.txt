@@ -1,0 +1,15 @@
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\bin\Debug\net8.0\Seller.JournalEntries.Application.deps.json
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\bin\Debug\net8.0\Seller.JournalEntries.Application.dll
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\bin\Debug\net8.0\Seller.JournalEntries.Application.pdb
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\bin\Debug\net8.0\Seller.JournalEntries.Domain.dll
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\bin\Debug\net8.0\Seller.JournalEntries.Domain.pdb
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.csproj.AssemblyReference.cache
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.AssemblyInfoInputs.cache
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.AssemblyInfo.cs
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.csproj.CoreCompileInputs.cache
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.J.7FD4DCDC.Up2Date
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.dll
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\refint\Seller.JournalEntries.Application.dll
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\Seller.JournalEntries.Application.pdb
+F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Application\obj\Debug\net8.0\ref\Seller.JournalEntries.Application.dll

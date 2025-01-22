@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\gsgomes\\__estudos_2025\\CSF\\desafio-arquitetura-ms\\seller-journal-entries\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CFA89113-1D3C-4505-8C15-6A07067EDAB9}|Seller.JournalEntries.Application\\Seller.JournalEntries.Application.csproj|f:\\gsgomes\\__estudos_2025\\csf\\desafio-arquitetura-ms\\seller-journal-entries\\seller.journalentries.application\\accountingentries\\insertaccountingentry\\insertaccountingentryrequesthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFA89113-1D3C-4505-8C15-6A07067EDAB9}|Seller.JournalEntries.Application\\Seller.JournalEntries.Application.csproj|solutionrelative:seller.journalentries.application\\accountingentries\\insertaccountingentry\\insertaccountingentryrequesthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC87CBD-548C-4D07-B0FA-7EC723671BED}|Seller.JournalEntries.Api\\Seller.JournalEntries.Api.csproj|f:\\gsgomes\\__estudos_2025\\csf\\desafio-arquitetura-ms\\seller-journal-entries\\seller.journalentries.api\\endpoints\\accountingentries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC87CBD-548C-4D07-B0FA-7EC723671BED}|Seller.JournalEntries.Api\\Seller.JournalEntries.Api.csproj|solutionrelative:seller.journalentries.api\\endpoints\\accountingentries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InsertAccountingEntryRequestHandler.cs",
+              "DocumentMoniker": "F:\\gsgomes\\__estudos_2025\\CSF\\desafio-arquitetura-ms\\seller-journal-entries\\Seller.JournalEntries.Application\\AccountingEntries\\InsertAccountingEntry\\InsertAccountingEntryRequestHandler.cs",
+              "RelativeDocumentMoniker": "Seller.JournalEntries.Application\\AccountingEntries\\InsertAccountingEntry\\InsertAccountingEntryRequestHandler.cs",
+              "ToolTip": "F:\\gsgomes\\__estudos_2025\\CSF\\desafio-arquitetura-ms\\seller-journal-entries\\Seller.JournalEntries.Application\\AccountingEntries\\InsertAccountingEntry\\InsertAccountingEntryRequestHandler.cs",
+              "RelativeToolTip": "Seller.JournalEntries.Application\\AccountingEntries\\InsertAccountingEntry\\InsertAccountingEntryRequestHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T01:33:37.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountingEntries.cs",
+              "DocumentMoniker": "F:\\gsgomes\\__estudos_2025\\CSF\\desafio-arquitetura-ms\\seller-journal-entries\\Seller.JournalEntries.Api\\Endpoints\\AccountingEntries.cs",
+              "RelativeDocumentMoniker": "Seller.JournalEntries.Api\\Endpoints\\AccountingEntries.cs",
+              "ToolTip": "F:\\gsgomes\\__estudos_2025\\CSF\\desafio-arquitetura-ms\\seller-journal-entries\\Seller.JournalEntries.Api\\Endpoints\\AccountingEntries.cs",
+              "RelativeToolTip": "Seller.JournalEntries.Api\\Endpoints\\AccountingEntries.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T01:33:04.48Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
