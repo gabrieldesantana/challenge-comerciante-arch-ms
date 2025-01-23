@@ -36,4 +36,10 @@ A solução oferece: Cadastro de lançamentos (débitos e créditos) e o cálcul
 5. **Acesse o serviço de gerenciamento de lançamentos em:**
    [localhost:5001](http://localhost:5001/swagger/index.html)
 6. **Acesse o serviço de consolidado diário em:**
-   [localhost:5002](http://localhost:5001/swagger/index.html)   
+   [localhost:5002](http://localhost:5001/swagger/index.html)
+
+## Sugestões futuras:
+1. Adicionar um ValidationExceptionPipeline
+2. Exceptions customizadas
+3. Uma classe para gerenciar melhor o retorno dos handlers
+4. Logger, Prometheus
