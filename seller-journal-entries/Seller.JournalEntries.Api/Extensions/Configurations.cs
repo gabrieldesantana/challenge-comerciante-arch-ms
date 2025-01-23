@@ -28,10 +28,6 @@ namespace Seller.JournalEntries.Api.Extensions
 
         public static void RegisterMiddlewares(this WebApplication app)
         {
-            using var scope = app.Services.CreateAsyncScope();
-            using var db = scope.ServiceProvider.GetService<AppDbContext>();
-            db.Database.MigrateAsync();
-
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
