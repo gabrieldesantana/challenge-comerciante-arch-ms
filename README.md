@@ -30,8 +30,10 @@ A solução oferece: Cadastro de lançamentos (débitos e créditos) e o cálcul
 2. **Acesse o diretorio:**
    challenge-comerciante-arch-ms
 3. **Execute o comando:**
-   docker-compose up -d
-4. **Acesse o serviço de gerenciamento de lançamentos em:**
+   docker-compose up -d journal-entries-db
+4. **Execute o comando:**
+   docker-compose up -d   
+5. **Acesse o serviço de gerenciamento de lançamentos em:**
    [localhost:5001](http://localhost:5001/swagger/index.html)
-5. **Acesse o serviço de consolidado diário em:**
+6. **Acesse o serviço de consolidado diário em:**
    [localhost:5002](http://localhost:5001/swagger/index.html)   
