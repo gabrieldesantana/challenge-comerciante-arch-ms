@@ -15,6 +15,7 @@ services:
       - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
     depends_on:
       - journal-entries-db
+      - daily-consolidated-balance-ms
 
   daily-consolidated-balance-ms:
     build:
@@ -30,8 +31,6 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
-    depends_on:
-      - journal-entries-ms
 
   journal-entries-db:
     image: postgres:17.2
