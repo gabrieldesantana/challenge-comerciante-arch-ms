@@ -1,5 +1,0 @@
-F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Infrastructure\obj\Debug\net8.0\Seller.JournalEntries.Infrastructure.csproj.AssemblyReference.cache
-F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Infrastructure\obj\Debug\net8.0\Seller.JournalEntries.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Infrastructure\obj\Debug\net8.0\Seller.JournalEntries.Infrastructure.AssemblyInfoInputs.cache
-F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Infrastructure\obj\Debug\net8.0\Seller.JournalEntries.Infrastructure.AssemblyInfo.cs
-F:\gsgomes\__estudos_2025\CSF\desafio-arquitetura-ms\seller-journal-entries\Seller.JournalEntries.Infrastructure\obj\Debug\net8.0\Seller.JournalEntries.Infrastructure.csproj.CoreCompileInputs.cache
