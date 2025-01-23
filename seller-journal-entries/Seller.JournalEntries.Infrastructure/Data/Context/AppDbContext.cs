@@ -17,8 +17,6 @@ namespace Seller.JournalEntries.Infrastructure.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            // connect to postgres with connection string from app settings
-
             var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection") ?? _configuration.GetConnectionString("Database");
             options.UseNpgsql(connectionString, b => b.MigrationsAssembly("Seller.JournalEntries.Infrastructure"));
         }

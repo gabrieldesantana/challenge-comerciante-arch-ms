@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using NSubstitute;
 using Seller.DailyReport.Application.DailyReports.GetConsolidatedDailyReport;
-using Seller.DailyReport.Domain.Entities;
 using Seller.DailyReport.Domain.Interfaces.Repository;
 
 namespace Seller.DailyReport.Application.Tests.Handlers
@@ -29,6 +28,20 @@ namespace Seller.DailyReport.Application.Tests.Handlers
             //Assert
             _ = await _repository.Received().GetAllOfTodayAsync();
             result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public async void GetConsolidatedDailyReport_WhenRepositoryFails_Should_ReturnFail()
+        {
+            //Arrange
+            GetConsolidatedDailyReportRequest request = new();
+
+            //Act
+            var result = await _class.Handle(request, new CancellationToken());
+
+            //Assert
+            _ = await _repository.Received().GetAllOfTodayAsync();
+            result.IsSuccess.Should().BeFalse();
         }
     }
 }
