@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Seller.JournalEntries.Domain.Entities;
+using Seller.DailyReport.Domain.Entities;
 
-namespace Seller.JournalEntries.Infrastructure.Data.Context
+namespace Seller.DailyReport.Infrastructure.Data.Context
 {
     public class AppDbContext : DbContext
     {
@@ -17,15 +17,9 @@ namespace Seller.JournalEntries.Infrastructure.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            // connect to postgres with connection string from app settings
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
 
-            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection") ?? _configuration.GetConnectionString("Database");
             options.UseNpgsql(connectionString, b => b.MigrationsAssembly("Seller.JournalEntries.Infrastructure"));
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder) 
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
     }
 }

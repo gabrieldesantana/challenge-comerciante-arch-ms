@@ -13,7 +13,10 @@ namespace Seller.JournalEntries.Application.AccountingEntries.SelectAccountingEn
             => (_repository, _validator) = (repository, validator);
         public async Task<Result<SelectAccountingEntryByIdResponse>> Handle(SelectAccountingEntryByIdRequest request, CancellationToken cancellationToken)
         {
-            _validator.ValidateAndThrow(request);
+             var validate = _validator.Validate(request);
+
+            if (!validate.IsValid)
+                return Result.Fail(validate.ToString("~"));
 
             var accountingEntry = await _repository.GetByIdAsync(request.Id);
 

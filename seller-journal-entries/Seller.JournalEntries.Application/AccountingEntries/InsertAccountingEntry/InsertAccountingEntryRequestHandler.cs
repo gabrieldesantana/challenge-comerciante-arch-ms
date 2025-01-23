@@ -16,7 +16,7 @@ namespace Seller.JournalEntries.Application.AccountingEntries.InsertAccountingEn
 
         public async Task<Result<InsertAccountingEntryResponse>> Handle(InsertAccountingEntryRequest request, CancellationToken cancellationToken)
         {
-            var validate = _validator.Validate(request); //.ValidateAndThrow(request);
+            var validate = _validator.Validate(request);
 
             if (!validate.IsValid)
                 return Result.Fail(validate.ToString("~"));

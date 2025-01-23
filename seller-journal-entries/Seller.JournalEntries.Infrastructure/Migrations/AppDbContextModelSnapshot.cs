@@ -40,8 +40,8 @@ namespace Seller.JournalEntries.Infrastructure.Migrations
                     b.Property<decimal>("MonetaryValue")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("varchar");
+                    b.Property<int?>("Type")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

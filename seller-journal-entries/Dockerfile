@@ -1,14 +1,12 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Seller.JournalEntries.Api/Seller.JournalEntries.Api.csproj", "Seller.JournalEntries.Api/"]
 COPY ["Seller.JournalEntries.Application/Seller.JournalEntries.Application.csproj", "Seller.JournalEntries.Application/"]
 COPY ["Seller.JournalEntries.Domain/Seller.JournalEntries.Domain.csproj", "Seller.JournalEntries.Domain/"]
-COPY ["Seller.JournalEntries.CrossCutting/Seller.JournalEntries.CrossCutting.csproj", "Seller.JournalEntries.CrossCutting/"]
 COPY ["Seller.JournalEntries.Infrastructure/Seller.JournalEntries.Infrastructure.csproj", "Seller.JournalEntries.Infrastructure/"]
 RUN dotnet restore "./Seller.JournalEntries.Api/Seller.JournalEntries.Api.csproj"
 COPY . .

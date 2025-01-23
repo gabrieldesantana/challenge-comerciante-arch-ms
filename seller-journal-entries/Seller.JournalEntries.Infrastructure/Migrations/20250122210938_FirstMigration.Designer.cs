@@ -12,7 +12,7 @@ using Seller.JournalEntries.Infrastructure.Data.Context;
 namespace Seller.JournalEntries.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250122121713_FirstMigration")]
+    [Migration("20250122210938_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -32,7 +32,7 @@ namespace Seller.JournalEntries.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
@@ -43,8 +43,8 @@ namespace Seller.JournalEntries.Infrastructure.Migrations
                     b.Property<decimal>("MonetaryValue")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("varchar");
+                    b.Property<int?>("Type")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

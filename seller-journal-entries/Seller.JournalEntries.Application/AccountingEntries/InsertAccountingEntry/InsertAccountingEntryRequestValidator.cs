@@ -21,8 +21,8 @@ namespace Seller.JournalEntries.Application.AccountingEntries.InsertAccountingEn
                 .NotNull()
                 .WithMessage("{PropertyName} deve ser informado");
 
-            RuleFor(v => v.Date)
-                .LessThanOrEqualTo(DateTime.Now)
+            RuleFor(v => v.Date.Date)
+                .LessThanOrEqualTo(DateTime.Now.Date)
                 .NotNull()
                 .WithMessage("{PropertyName} deve ser informado");
         }

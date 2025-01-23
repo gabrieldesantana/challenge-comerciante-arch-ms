@@ -1,12 +1,12 @@
 services:
   journal-entries-ms:
     build:
-      context: .
+      context: \seller-journal-entries\.
       dockerfile: Dockerfile
     container_name: journal-entries-api
     hostname: journal-entries-host
     ports:
-    - "8080:8080"
+    - "5001:8080"
     networks:
       - journal_entries_network
     restart: always
@@ -15,6 +15,23 @@ services:
       - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
     depends_on:
       - journal-entries-db
+
+  daily-consolidated-balance-ms:
+    build:
+      context: \daily-consolidated-balance\.
+      dockerfile: Dockerfile
+    container_name: daily-consolidated-balance-api
+    hostname: daily-consolidated-balance-host
+    ports:
+    - "5002:8080"
+    networks:
+      - journal_entries_network
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
+    depends_on:
+      - journal-entries-ms
 
   journal-entries-db:
     image: postgres:17.2
@@ -26,8 +43,13 @@ services:
       - POSTGRES_PASSWORD=Senha123!
     ports:
       - "35432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     networks:
       - journal_entries_network
 
 networks:
   journal_entries_network:
+
+volumes:
+    pgdata:
