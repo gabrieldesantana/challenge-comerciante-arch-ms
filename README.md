@@ -43,3 +43,4 @@ A solução oferece: Cadastro de lançamentos (débitos e créditos) e o cálcul
 2. Exceptions customizadas
 3. Uma classe para gerenciar melhor o retorno dos handlers
 4. Logger, Prometheus
+5. Criar testes para as camadas Domain e Infrastructure
