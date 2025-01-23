@@ -19,6 +19,8 @@ namespace Seller.JournalEntries.Api.Endpoints
                 ? Results.Ok(response.Value)
                 : Results.BadRequest(response.Errors);
             })
+            .Produces(200, typeof(SelectAllAccountingEntriesResponse))
+            .Produces(400)
             .WithName("GetAllAccountingEntries")
             .WithOpenApi();
 
@@ -30,6 +32,8 @@ namespace Seller.JournalEntries.Api.Endpoints
                 ? Results.Ok(response.Value)
                 : Results.BadRequest(response.Errors);
             })
+            .Produces(200, typeof(SelectAccountingEntryByIdResponse))
+            .Produces(400)
             .WithName("GetAccountingEntryById")
             .WithOpenApi();
 
@@ -41,6 +45,8 @@ namespace Seller.JournalEntries.Api.Endpoints
                 ? Results.Ok(response.Value)
                 : Results.BadRequest(response.Errors);
             })
+            .Produces(200, typeof(InsertAccountingEntryResponse))
+            .Produces(400)
             .WithName("PostAccountingEntry")
             .WithOpenApi();
         }

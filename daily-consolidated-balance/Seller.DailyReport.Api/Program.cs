@@ -5,6 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.RegisterServices();
 
+builder.RegisterApplicationServices();
+
+builder.RegisterInfrastuctureServices();
+
 var app = builder.Build();
 
 app.RegisterMiddlewares();

@@ -6,6 +6,8 @@ using Seller.JournalEntries.Infrastructure.Data.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.RegisterServices();
+builder.RegisterApplicationServices();
+builder.RegisterInfrastuctureServices();
 
 var app = builder.Build();
 

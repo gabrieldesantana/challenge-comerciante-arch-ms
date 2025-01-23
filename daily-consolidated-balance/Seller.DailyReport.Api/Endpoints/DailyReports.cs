@@ -17,12 +17,10 @@ namespace Seller.DailyReport.Api.Endpoints
                 ? Results.Ok(response.Value)
                 : Results.BadRequest(response.Errors);
             })
+            .Produces(200, typeof(GetConsolidatedDailyReportResponse))
+            .Produces(400)
             .WithName("GetConsolidatedDailyReport")
             .WithOpenApi();
         }
-    }
-    internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-    {
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 }

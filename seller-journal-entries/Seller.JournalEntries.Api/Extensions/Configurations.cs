@@ -11,17 +11,6 @@ namespace Seller.JournalEntries.Api.Extensions
     {
         public static void RegisterServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ApplicationEntryPoint).Assembly));
-
-            builder.Services.AddValidatorsFromAssembly(typeof(ApplicationEntryPoint).Assembly);
-
-            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
-
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(connectionString));
-
-            builder.Services.AddScoped<IAccountingEntryRepository, AccountingEntryRepository>();
-
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
         }
@@ -33,6 +22,21 @@ namespace Seller.JournalEntries.Api.Extensions
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+        }
+
+        public static void RegisterApplicationServices(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ApplicationEntryPoint).Assembly));
+            builder.Services.AddValidatorsFromAssembly(typeof(ApplicationEntryPoint).Assembly);
+        }
+
+        public static void RegisterInfrastuctureServices(this WebApplicationBuilder builder)
+        {
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                      options.UseNpgsql(connectionString));
+
+            builder.Services.AddScoped<IAccountingEntryRepository, AccountingEntryRepository>();
         }
     }
 }
