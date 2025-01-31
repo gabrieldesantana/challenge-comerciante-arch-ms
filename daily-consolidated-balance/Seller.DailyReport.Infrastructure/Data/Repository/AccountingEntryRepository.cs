@@ -15,7 +15,7 @@ namespace Seller.DailyReport.Infrastructure.Data.Repository
 
         public async Task<List<AccountingEntry>> GetAllOfTodayAsync() => 
             await _dbSet
-            .Where(a => DateTime.SpecifyKind(a.Date.Date,DateTimeKind.Unspecified ) == DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Unspecified))
+            .Where(a => a.Date.Date == DateTime.Today.Date)
             .ToListAsync();
     }
 }

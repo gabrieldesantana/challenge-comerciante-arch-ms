@@ -17,7 +17,7 @@ namespace Seller.DailyReport.Infrastructure.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection") ?? _configuration.GetConnectionString("Database");
 
             options.UseNpgsql(connectionString, b => b.MigrationsAssembly("Seller.JournalEntries.Infrastructure"));
         }

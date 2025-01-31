@@ -1,7 +1,9 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Seller.JournalEntries.Application;
+using Seller.JournalEntries.Application.Services;
 using Seller.JournalEntries.Domain.Interfaces.Repository;
+using Seller.JournalEntries.Domain.Interfaces.Services;
 using Seller.JournalEntries.Infrastructure.Data.Context;
 using Seller.JournalEntries.Infrastructure.Data.Repository;
 
@@ -13,6 +15,8 @@ namespace Seller.JournalEntries.Api.Extensions
         {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddMemoryCache();
+            builder.Services.AddScoped<ICacheService, CacheService>();
         }
 
         public static void RegisterMiddlewares(this WebApplication app)
@@ -33,6 +37,7 @@ namespace Seller.JournalEntries.Api.Extensions
         public static void RegisterInfrastuctureServices(this WebApplicationBuilder builder)
         {
             var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             builder.Services.AddDbContext<AppDbContext>(options =>
                       options.UseNpgsql(connectionString));
 
