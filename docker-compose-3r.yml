@@ -3,10 +3,10 @@ services:
     build:
       context: \seller-journal-entries\.
       dockerfile: Dockerfile
-    container_name: journal-entries-api
+    deploy:
+      mode: replicated
+      replicas: 3
     hostname: journal-entries-host
-    ports:
-    - "5001:8080"
     networks:
       - journal_entries_network
     restart: always
@@ -21,10 +21,10 @@ services:
     build:
       context: \daily-consolidated-balance\.
       dockerfile: Dockerfile
-    container_name: daily-consolidated-balance-api
+    deploy:
+      mode: replicated
+      replicas: 3
     hostname: daily-consolidated-balance-host
-    ports:
-    - "5002:8080"
     networks:
       - journal_entries_network
     restart: always
@@ -34,7 +34,6 @@ services:
 
   journal-entries-db:
     image: postgres:17.2
-    command: postgres -c max_connections=1000
     container_name: journal-entries-db
     hostname: journal-entries-db
     environment:
@@ -48,8 +47,31 @@ services:
     networks:
       - journal_entries_network
 
+  nginx-journal:
+    image: nginx:latest
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./nginx/journal-entries/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - journal-entries-ms
+    networks:
+      - journal_entries_network
+
+  nginx-daily:
+    image: nginx:latest
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./nginx/daily-balance/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - daily-consolidated-balance-ms
+    networks:
+      - journal_entries_network
+
 networks:
   journal_entries_network:
+    driver: bridge
 
 volumes:
     pgdata:

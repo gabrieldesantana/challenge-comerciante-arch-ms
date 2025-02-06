@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Seller.DailyReport.Domain.Entities;
 using Seller.DailyReport.Domain.Interfaces.Repository;
 using Seller.DailyReport.Domain.Interfaces.Services;
@@ -11,9 +12,13 @@ namespace Seller.DailyReport.Application.DailyReports.GetConsolidatedDailyReport
         private readonly IAccountingEntryRepository _repository;
         private readonly ICacheService _cacheService;
         private const string CACHE_KEY = "AccountingEntriesOfToday";
+        private readonly ILogger<GetConsolidatedDailyReportRequestHandler> _logger;
 
-        public GetConsolidatedDailyReportRequestHandler(IAccountingEntryRepository repository, ICacheService cacheService)
-            => (_repository,_cacheService) = (repository, cacheService);
+        public GetConsolidatedDailyReportRequestHandler(
+            IAccountingEntryRepository repository,
+            ICacheService cacheService,
+            ILogger<GetConsolidatedDailyReportRequestHandler> logger)
+            => (_repository,_cacheService, _logger) = (repository, cacheService, logger);
 
         public async Task<Result<GetConsolidatedDailyReportResponse>> Handle(GetConsolidatedDailyReportRequest request, CancellationToken cancellationToken)
         {
@@ -22,6 +27,7 @@ namespace Seller.DailyReport.Application.DailyReports.GetConsolidatedDailyReport
             if (accountingEntriesOfToday is null)
             {
                 accountingEntriesOfToday = await _repository.GetAllOfTodayAsync();
+                _logger.LogInformation(">>>>> Consulta a base de dados <<<<<");
                 _cacheService.Save(CACHE_KEY, accountingEntriesOfToday);
             }
 
