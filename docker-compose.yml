@@ -6,7 +6,7 @@ services:
     container_name: journal-entries-api
     hostname: journal-entries-host
     ports:
-    - "5001:8080"
+    - "5003:8080"
     networks:
       - journal_entries_network
     restart: always
@@ -24,7 +24,7 @@ services:
     container_name: daily-consolidated-balance-api
     hostname: daily-consolidated-balance-host
     ports:
-    - "5002:8080"
+    - "5004:8080"
     networks:
       - journal_entries_network
     restart: always

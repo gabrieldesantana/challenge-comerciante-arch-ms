@@ -4,6 +4,13 @@ services:
       context: \seller-journal-entries\.
       dockerfile: Dockerfile
     deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 100M
+        reservations:
+          cpus: '0.25'
+          memory: 40M
       mode: replicated
       replicas: 3
     hostname: journal-entries-host
@@ -12,7 +19,7 @@ services:
     restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
+      - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!;Timeout=60;CommandTimeout=60
     depends_on:
       - journal-entries-db
       - daily-consolidated-balance-ms
@@ -22,6 +29,13 @@ services:
       context: \daily-consolidated-balance\.
       dockerfile: Dockerfile
     deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 100M
+        reservations:
+          cpus: '0.25'
+          memory: 40M
       mode: replicated
       replicas: 3
     hostname: daily-consolidated-balance-host
@@ -30,7 +44,7 @@ services:
     restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!
+      - ConnectionStrings__DefaultConnection=Host=journal-entries-db;Database=db-hml;Username=postgres;Password=Senha123!;Timeout=60;CommandTimeout=60
 
   journal-entries-db:
     image: postgres:17.2
@@ -44,6 +58,9 @@ services:
       - "35432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./postgresql/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+    command: postgres -c config_file=/var/lib/postgresql/data/postgresql.conf
+
     networks:
       - journal_entries_network
 
