@@ -25,23 +25,25 @@ namespace Seller.JournalEntries.Application.AccountingEntries.SelectAllAccountin
 
         public async Task<Result<SelectAllAccountingEntriesResponse>> Handle(SelectAllAccountingEntriesRequest request, CancellationToken cancellationToken)
         {
-            var accountingEntries = _cacheService.GetByKey<List<AccountingEntry>>(CACHE_KEY);
-
-            if (accountingEntries is null) 
-            {
-                accountingEntries = await _repository.GetAllAsync();
-                _logger.LogInformation(">>>>> Consulta a base de dados <<<<<");
-
-                _cacheService.Save(CACHE_KEY, accountingEntries);
-            }
-
+            var accountingEntriesTask = GetCachedDataAsync();
+            var accountingEntries = await accountingEntriesTask;
             SelectAllAccountingEntriesResponse response = accountingEntries;
 
             return Result.Ok(response);
         }
 
-        private MemoryCacheEntryOptions SetCacheOptions() =>
-            new MemoryCacheEntryOptions()
-            .SetAbsoluteExpiration(TimeSpan.FromSeconds(30));
+        private async ValueTask<List<AccountingEntry>> GetCachedDataAsync()
+        {
+            var accountingEntries = _cacheService.GetByKey<List<AccountingEntry>>(CACHE_KEY);
+
+            if (accountingEntries is null)
+            {
+                accountingEntries = await _repository.GetAllAsync();
+                _logger.LogInformation(">>>>> Consulta a base de dados <<<<<");
+                _cacheService.Save(CACHE_KEY, accountingEntries);
+            }
+
+            return accountingEntries;
+        }
     }
 }

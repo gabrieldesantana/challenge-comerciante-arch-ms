@@ -22,6 +22,18 @@ namespace Seller.DailyReport.Application.DailyReports.GetConsolidatedDailyReport
 
         public async Task<Result<GetConsolidatedDailyReportResponse>> Handle(GetConsolidatedDailyReportRequest request, CancellationToken cancellationToken)
         {
+            var accountingEntriesOfTodayTask = GetCachedDataAsync();
+            var accountingEntriesOfToday = await accountingEntriesOfTodayTask;
+
+            if (!accountingEntriesOfToday.Any())
+                return Result.Ok(new GetConsolidatedDailyReportResponse() { Date = DateTime.Today});
+
+            var response = new GetConsolidatedDailyReportResponse().FormatResponse(accountingEntriesOfToday);
+            return Result.Ok(response);
+        }
+
+        private async ValueTask<List<AccountingEntry>> GetCachedDataAsync()
+        {
             var accountingEntriesOfToday = _cacheService.GetByKey<List<AccountingEntry>>(CACHE_KEY);
 
             if (accountingEntriesOfToday is null)
@@ -31,11 +43,7 @@ namespace Seller.DailyReport.Application.DailyReports.GetConsolidatedDailyReport
                 _cacheService.Save(CACHE_KEY, accountingEntriesOfToday);
             }
 
-            if (!accountingEntriesOfToday.Any())
-                return Result.Ok(new GetConsolidatedDailyReportResponse() { Date = DateTime.Today});
-
-            var response = new GetConsolidatedDailyReportResponse().FormatResponse(accountingEntriesOfToday);
-            return Result.Ok(response);
+            return accountingEntriesOfToday;
         }
     }
 }
